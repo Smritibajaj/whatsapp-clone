@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import ListIcons from "./list-icons";
 
 type IconProps = {

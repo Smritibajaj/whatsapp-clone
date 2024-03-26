@@ -1,6 +1,7 @@
 import Sidebar from "../components/sidebar";
 import { App, Content, Message } from "./styles";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function ChatLayout(props: { children: any }) {
   return (
     <App>

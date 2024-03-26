@@ -1,10 +1,12 @@
 import { useEffect, useRef } from "react";
 
-export default function useCloseMenu(handler: Function) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function useCloseMenu(handler: any) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const ref = useRef<any>(null);
 
   useEffect(() => {
-    const handleClickOutside = (event: any) => {
+    const handleClickOutside = (event: unknown) => {
       if (ref.current && !ref.current.contains(event.target)) {
         handler();
       }

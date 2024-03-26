@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import styled, { css } from "styled-components";
 
 export const Container = styled.div`

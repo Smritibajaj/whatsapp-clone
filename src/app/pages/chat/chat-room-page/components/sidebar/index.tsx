@@ -1,10 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Icon from "@app/common/components/icons";
 import { CloseButton, Heading, Content, Header, Container } from "./styles";
 
 type SidebarProps = {
   title: string;
   isOpen?: boolean;
-  onClose?: Function;
+  onClose?: () => any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   children?: any;
 };
 

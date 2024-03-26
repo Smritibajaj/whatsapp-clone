@@ -11,6 +11,7 @@ type OptionsMenuProps = {
   options: string[];
   position?: string;
   showPressed?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [x: string]: any;
 };
 

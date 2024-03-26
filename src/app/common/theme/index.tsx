@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createContext, useContext, useState } from "react";
 import { DefaultTheme, ThemeProvider } from "styled-components";
 
