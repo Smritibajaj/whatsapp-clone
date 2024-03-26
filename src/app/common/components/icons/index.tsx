@@ -9,6 +9,6 @@ type IconProps = {
 export default function Icon(props: IconProps) {
   const { id, ...rest } = props;
 
-  const currentSelectedIcon = ListIcons[id];
+  const currentSelectedIcon: any = ListIcons?.[id] as () => any[];
   return currentSelectedIcon ? currentSelectedIcon(rest) : null;
 }
