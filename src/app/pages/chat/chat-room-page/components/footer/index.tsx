@@ -24,7 +24,7 @@ export default function Footer() {
   return (
     <Wrapper>
       <IconsWrapper>
-        <AttachButton onClick={() => setShowIcons(!showIcons)}>
+        <AttachButton onClick={() => setShowIcons(!showIcons)}  disabled={true}>
           <Icon id="attach" className="icon" />
         </AttachButton>
         <ButtonsContainer>
@@ -35,8 +35,8 @@ export default function Footer() {
           ))}
         </ButtonsContainer>
       </IconsWrapper>
-      <Input placeholder="Type a message here .." />
-      <SendMessageButton>
+      <Input disabled placeholder="Type a message here .." />
+      <SendMessageButton  disabled={true}>
         <Icon id="send" className="icon" />
       </SendMessageButton>
     </Wrapper>

@@ -1,7 +1,7 @@
 import Icon from "@app/common/components/icons";
 import { Inbox } from "@app/common/types/common.type";
 import {
-  Avatar,
+  // Avatar,
   AvatarWrapper,
   BottomContent,
   Contact,
@@ -14,6 +14,7 @@ import {
   TopContent,
   UnreadContact,
 } from "./styles";
+import { Avatar } from "@mui/material";
 
 type InboxContactProps = {
   inbox: Inbox;
@@ -34,7 +35,8 @@ export default function InboxContact(props: InboxContactProps) {
   return (
     <Contact isActive={isActive} onClick={handleChangeChat}>
       <AvatarWrapper>
-        <Avatar src={image} />
+        {/* <Avatar src={image} /> */}
+        <Avatar />
       </AvatarWrapper>
       <Content>
         <TopContent>

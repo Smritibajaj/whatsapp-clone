@@ -50,16 +50,16 @@ export default function ChatRoomPage() {
             <Footer />
           </FooterContainer>
         </Body>
-        <Sidebar title="Search" isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)}>
+        {/* <Sidebar title="Search" isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)}>
           <SearchSection />
-        </Sidebar>
-        <Sidebar
+        </Sidebar> */}
+        {/* <Sidebar
           title="Contact Info"
           isOpen={isProfileOpen}
           onClose={() => setIsProfileOpen(false)}
         >
           <ProfileSection name={activeInbox?.name ?? ""} image={activeInbox?.image ?? ""} />
-        </Sidebar>
+        </Sidebar> */}
       </Container>
     </ChatLayout>
   );

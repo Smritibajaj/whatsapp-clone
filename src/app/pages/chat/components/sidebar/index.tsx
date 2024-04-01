@@ -11,13 +11,13 @@ import { Inbox } from "@app/common/types/common.type";
 import { useChatContext } from "@app/pages/chat/context/chat";
 import {
   Actions,
-  Avatar,
   ContactContainer,
   Header,
   ImageWrapper,
   SidebarContainer,
   ThemeIconContainer,
 } from "./styles";
+import { Avatar } from "@mui/material";
 
 export default function Sidebar() {
   const theme = useAppTheme();
@@ -37,9 +37,9 @@ export default function Sidebar() {
     <SidebarContainer>
       <Header>
         <ImageWrapper>
-          <Avatar src="/assets/images/profile.jpeg" />
+         <Avatar />
         </ImageWrapper>
-        <Actions>
+        {/* <Actions>
           <ThemeIconContainer onClick={handleChangeThemeMode}>
             {theme.mode === "light" ? <BsMoon /> : <BsFillMoonFill />}
           </ThemeIconContainer>
@@ -64,9 +64,9 @@ export default function Sidebar() {
               "Log out",
             ]}
           />
-        </Actions>
+        </Actions> */}
       </Header>
-      <SidebarAlert />
+      {/* <SidebarAlert /> */}
       <SearchField />
       <ContactContainer>
         {chatCtx.inbox.map((inbox) => (
