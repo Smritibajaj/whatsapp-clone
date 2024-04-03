@@ -1,7 +1,7 @@
 import ChatLayout from "../layouts";
-import Icon from "@app/common/components/icons";
+//import Icon from "@app/common/components/icons";
 import { useAppTheme } from "@app/common/theme";
-import { Container, ImageWrapper, Title, IconWrapper, Link, Image, Text } from "./styles";
+import { Container, ImageWrapper, Title, Image, Text } from "./styles";
 
 export default function UnSelectedChatPage() {
   const theme = useAppTheme();

@@ -1,9 +1,9 @@
-import Icon from "@app/common/components/icons";
-import OptionsMenu from "@app/pages/chat/components/option-menu";
+// import Icon from "@app/common/components/icons";
+// import OptionsMenu from "@app/pages/chat/components/option-menu";
 import {
-  Action,
-  Actions,
-  actionStyles,
+  // Action,
+  // Actions,
+  // actionStyles,
   // Avatar,
   AvatarWrapper,
   Container,
@@ -14,15 +14,15 @@ import {
 import { Avatar } from "@mui/material";
 
 type HeaderProps = {
-  onSearchClick: Function;
-  onProfileClick: Function;
+  onSearchClick: () => void;
+  onProfileClick: () => void;
   title: string;
   image: string;
   subTitle: string;
 };
 
 export default function Header(props: HeaderProps) {
-  const { title, subTitle, image, onProfileClick, onSearchClick } = props;
+  const { title, subTitle, onProfileClick } = props;
 
   return (
     <Container>

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { forwardRef, useEffect, useMemo, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import Icon from "@app/common/components/icons";
@@ -17,8 +17,8 @@ import {
 } from "./styles";
 
 type MessagesListProps = {
-  onShowBottomIcon: Function;
-  shouldScrollToBottom?: boolean;
+  onShowBottomIcon: () => void;
+  shouldScrollToBottom?: () => void;
 };
 
 export default function MessagesList(props: MessagesListProps) {

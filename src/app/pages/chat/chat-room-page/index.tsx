@@ -1,12 +1,12 @@
 import ChatLayout from "../layouts";
 import Header from "./components/header";
 import Footer from "./components/footer";
-import Sidebar from "./components/sidebar";
+// import Sidebar from "./components/sidebar";
 import Icon from "@app/common/components/icons";
 import useChatRoom from "./hooks/useChatRoom";
-import ProfileSection from "./components/profile";
+//import ProfileSection from "./components/profile";
 import MessagesList from "./components/messages-list";
-import SearchSection from "./components/search-section";
+//import SearchSection from "./components/search-section";
 import useNavigateToChat from "./hooks/useNavigateToChat";
 import { Container, Body, Background, FooterContainer, ScrollButton } from "./styles";
 
@@ -15,11 +15,11 @@ export default function ChatRoomPage() {
     activeInbox,
     handleMenuOpen,
     handleShowIcon,
-    isProfileOpen,
-    isSearchOpen,
+    // isProfileOpen,
+    // isSearchOpen,
     isShowIcon,
-    setIsProfileOpen,
-    setIsSearchOpen,
+    // setIsProfileOpen,
+    // setIsSearchOpen,
     setShouldScrollToBottom,
     shouldScrollToBottom,
   } = useChatRoom();

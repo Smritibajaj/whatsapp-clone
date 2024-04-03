@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { MessageStatus } from "@app/common/types/common.type";
 import axios from "axios";
 import dayjs from "dayjs";
@@ -239,7 +240,7 @@ const getMessage = (datum: any) => {
   }
 };
 
-const getTimeStamp = (datum) => {
+const getTimeStamp = (datum: any) => {
   if (datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.timestamp)
     return datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]
       ?.timestamp;
