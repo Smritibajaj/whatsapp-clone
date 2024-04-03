@@ -5,7 +5,7 @@ import InboxContact from "./contacts";
 // import OptionsMenu from "../option-menu";
 import SearchField from "../search-field";
 // import Icon from "@app/common/components/icons";
-import { useAppTheme } from "@app/common/theme";
+// import { useAppTheme } from "@app/common/theme";
 import { Inbox } from "@app/common/types/common.type";
 import { useChatContext } from "@app/pages/chat/context/chat";
 import {

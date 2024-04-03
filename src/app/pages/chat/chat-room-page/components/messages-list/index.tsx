@@ -17,8 +17,8 @@ import {
 } from "./styles";
 
 type MessagesListProps = {
-  onShowBottomIcon: () => void;
-  shouldScrollToBottom?: () => void;
+  onShowBottomIcon: (state: boolean) => void;
+  shouldScrollToBottom?: boolean;
 };
 
 export default function MessagesList(props: MessagesListProps) {

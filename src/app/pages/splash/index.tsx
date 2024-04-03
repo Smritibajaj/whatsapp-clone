@@ -1,11 +1,11 @@
 import {
   Container,
-  EncryptionIcon,
-  Link,
+  //EncryptionIcon,
+  //Link,
   Logo,
   LogoWrapper,
   Progress,
-  SubTitle,
+  // SubTitle,
   Title,
 } from "./styles";
 
