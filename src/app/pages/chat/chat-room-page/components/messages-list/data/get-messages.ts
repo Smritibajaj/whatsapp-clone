@@ -212,7 +212,7 @@ const getMessage = (datum: any) => {
     datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.contacts
   ) {
     return datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]
-      ?.contacts?.name[0]?.first_name;
+      ?.contacts?.name?.[0]?.first_name;
   } else if (
     datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.media
   ) {
