@@ -1,4 +1,6 @@
 import { MessageStatus } from "@app/common/types/common.type";
+import axios from "axios";
+import dayjs from "dayjs";
 
 export type Message = {
   id: string;
@@ -188,12 +190,81 @@ const messages: Message[] = [
   },
 ];
 
-export function getMessages(): Message[] {
+async function getChatData(id: string) {
+  const data = await axios.get(
+    `https://us-central1-visof-new-vuja.cloudfunctions.net/middleware/conv/${id}`
+  );
+  console.log(data);
+  return data.data;
+}
+const getMessage = (datum: any) => {
+  if (datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.text) {
+    return datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.text
+      .body;
+  } else if (
+    datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.location
+  ) {
+    return datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]
+      ?.location.name;
+  } else if (
+    datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.contacts
+  ) {
+    return datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]
+      ?.contacts?.name[0]?.first_name;
+  } else if (
+    datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.media
+  ) {
+    return datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.media
+      .filename;
+  } else if (
+    datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.interactive
+      ?.type === "list_reply"
+  ) {
+    return (
+      datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]
+        ?.interactive?.list_reply?.title +
+      datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]
+        ?.interactive?.list_reply?.description
+    );
+  } else if (
+    datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.interactive
+      ?.type === "button_reply"
+  ) {
+    return datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]
+      ?.interactive.button_reply?.title;
+  } else if (datum.response?.interactive?.body?.text) {
+    return datum.response?.interactive?.body?.text;
+  } else {
+    return "test";
+  }
+};
+
+const getTimeStamp = (datum) => {
+  if (datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.timestamp)
+    return datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]
+      ?.timestamp;
+};
+export async function getMessages(id: string): any[] {
   const totalMessagesLength = messages.length;
   let randomNumber = Math.floor(Math.random() * totalMessagesLength);
 
   if (randomNumber > totalMessagesLength) randomNumber = totalMessagesLength;
   if (randomNumber === 1) randomNumber = 2; // so we always have atleast 1-2 messages.
 
-  return messages.slice(0, randomNumber);
+  const data = await getChatData(id);
+  if (data?.length > 0) {
+    const newData = data?.map?.((datum: any) => {
+      console.log(datum);
+      return {
+        body: getMessage(datum),
+        actor: datum.actor,
+        isOpponent: datum?.actor !== "user",
+        id: datum?.request?.entry?.[0]?.changes?.[0]?.id,
+        date: dayjs(getTimeStamp(datum)).format("DD/MM/YYYY"),
+        timestamp: dayjs(getTimeStamp(datum)).format("HH:MM"),
+        messageStatus: "DELIVERED",
+      };
+    });
+    return newData;
+  }
 }

@@ -22,7 +22,7 @@ export default function UnSelectedChatPage() {
           Send and receive messages without keeping your phone online. <br />
           Use WhatsApp on up to 4 linked devices and 1 phone at the same time.
         </Text>
-        <Text>
+        {/* <Text>
           <span>Built by</span>{" "}
           <Link target="_blank" href="https://github.com/Smritibajaj">
             Simmy Bajaj
@@ -30,7 +30,7 @@ export default function UnSelectedChatPage() {
           <IconWrapper>
             <Icon id="heart" />
           </IconWrapper>
-        </Text>
+        </Text> */}
       </Container>
     </ChatLayout>
   );

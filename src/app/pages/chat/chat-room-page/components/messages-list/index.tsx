@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { forwardRef, useMemo } from "react";
+import { forwardRef, useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import Icon from "@app/common/components/icons";
@@ -25,34 +25,53 @@ export default function MessagesList(props: MessagesListProps) {
   const { onShowBottomIcon, shouldScrollToBottom } = props;
 
   const params = useParams();
-  const messages = useMemo(() => {
-    return getMessages();
-    // eslint-disable-next-line
-  }, [params.id]);
+  const [messages, setMessages] = useState<any>([]);
+
   const { containerRef, lastMessageRef } = useScrollToBottom(
     onShowBottomIcon,
     shouldScrollToBottom,
     params.id
   );
 
+  const getMsgs = async () => {
+    const msg = await getMessages(params.id);
+    console.log(msg);
+    debugger;
+    setMessages(msg);
+  };
+
+  useEffect(() => {
+    if (params.id) {
+      getMsgs();
+    }
+
+    // eslint-disable-next-line
+  }, [params.id]);
   return (
     <Container ref={containerRef}>
       <EncryptionMessage>
         <Icon id="lock" className="icon" />
-        Messages are end-to-end encrypted. No one outside of this chat, not even WhatsApp, can read
-        or listen to them. Click to learn more.
+        Messages are end-to-end encrypted. No one outside of this chat, not even
+        WhatsApp, can read or listen to them. Click to learn more.
       </EncryptionMessage>
       <DateWrapper>
         <Date> TODAY </Date>
       </DateWrapper>
       <MessageGroup>
-        {messages.map((message, i) => {
-          if (i === messages.length - 1) {
-            return <SingleMessage key={message.id} message={message} ref={lastMessageRef} />;
-          } else {
-            return <SingleMessage key={message.id} message={message} />;
-          }
-        })}
+        {messages?.length > 0 &&
+          messages?.map((message, i) => {
+            if (i === messages.length - 1) {
+              return (
+                <SingleMessage
+                  key={message.id}
+                  message={message}
+                  ref={lastMessageRef}
+                />
+              );
+            } else {
+              return <SingleMessage key={message.id} message={message} />;
+            }
+          })}
       </MessageGroup>
     </Container>
   );
@@ -71,11 +90,15 @@ const SingleMessage = forwardRef((props: { message: Message }, ref: any) => {
       <ChatMessageFiller />
       <ChatMessageFooter>
         <span>{message.timestamp}</span>
-        {!message.isOpponent && (
+        {message.actor !== "user" && (
           <Icon
-            id={`${message.messageStatus === "SENT" ? "singleTick" : "doubleTick"}`}
+            id={`${
+              message.messageStatus === "SENT" ? "singleTick" : "doubleTick"
+            }`}
             className={`chat__msg-status-icon ${
-              message.messageStatus === "READ" ? "chat__msg-status-icon--blue" : ""
+              message.messageStatus === "READ"
+                ? "chat__msg-status-icon--blue"
+                : ""
             }`}
           />
         )}
