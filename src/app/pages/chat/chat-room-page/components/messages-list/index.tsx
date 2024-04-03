@@ -34,10 +34,11 @@ export default function MessagesList(props: MessagesListProps) {
   );
 
   const getMsgs = async () => {
-    const msg = await getMessages(params.id);
-    console.log(msg);
-    debugger;
-    setMessages(msg);
+    if (params.id) {
+      const msg = await getMessages(params.id);
+      console.log(msg);
+      setMessages(msg);
+    }
   };
 
   useEffect(() => {
