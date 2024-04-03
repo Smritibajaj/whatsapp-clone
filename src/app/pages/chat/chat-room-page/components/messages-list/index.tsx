@@ -59,7 +59,7 @@ export default function MessagesList(props: MessagesListProps) {
       </DateWrapper>
       <MessageGroup>
         {messages?.length > 0 &&
-          messages?.map((message, i) => {
+          messages?.map((message: Message, i: number) => {
             if (i === messages.length - 1) {
               return (
                 <SingleMessage

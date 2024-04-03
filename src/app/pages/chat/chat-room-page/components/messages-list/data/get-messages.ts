@@ -10,6 +10,7 @@ export type Message = {
   timestamp: string;
   messageStatus: MessageStatus;
   isOpponent: boolean;
+  actor?:string;
 };
 
 const messages: Message[] = [
@@ -245,7 +246,7 @@ const getTimeStamp = (datum: any) => {
     return datum?.request?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]
       ?.timestamp;
 };
-export async function getMessages(id: string): any[] {
+export async function getMessages(id: string): Promise<any> {
   const totalMessagesLength = messages.length;
   let randomNumber = Math.floor(Math.random() * totalMessagesLength);
 
@@ -268,4 +269,5 @@ export async function getMessages(id: string): any[] {
     });
     return newData;
   }
+  return []
 }
