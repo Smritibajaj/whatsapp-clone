@@ -1,32 +1,31 @@
 import { useNavigate } from "react-router-dom";
-import { BsFillMoonFill, BsMoon } from "react-icons/bs";
-
-import SidebarAlert from "./alert";
+// import { BsFillMoonFill, BsMoon } from "react-icons/bs";
+// import SidebarAlert from "./alert";
 import InboxContact from "./contacts";
-import OptionsMenu from "../option-menu";
+// import OptionsMenu from "../option-menu";
 import SearchField from "../search-field";
-import Icon from "@app/common/components/icons";
-import { useAppTheme } from "@app/common/theme";
+// import Icon from "@app/common/components/icons";
+// import { useAppTheme } from "@app/common/theme";
 import { Inbox } from "@app/common/types/common.type";
 import { useChatContext } from "@app/pages/chat/context/chat";
 import {
-  Actions,
-  Avatar,
+  // Actions,
   ContactContainer,
   Header,
   ImageWrapper,
   SidebarContainer,
-  ThemeIconContainer,
+  // ThemeIconContainer,
 } from "./styles";
+import { Avatar } from "@mui/material";
 
 export default function Sidebar() {
-  const theme = useAppTheme();
+  // const theme = useAppTheme();
   const navigate = useNavigate();
   const chatCtx = useChatContext();
 
-  const handleChangeThemeMode = () => {
-    theme.onChangeThemeMode();
-  };
+  // const handleChangeThemeMode = () => {
+  //   theme.onChangeThemeMode();
+  // };
 
   const handleChangeChat = (chat: Inbox) => {
     chatCtx.onChangeChat(chat);
@@ -37,9 +36,9 @@ export default function Sidebar() {
     <SidebarContainer>
       <Header>
         <ImageWrapper>
-          <Avatar src="/assets/images/profile.jpeg" />
+         <Avatar />
         </ImageWrapper>
-        <Actions>
+        {/* <Actions>
           <ThemeIconContainer onClick={handleChangeThemeMode}>
             {theme.mode === "light" ? <BsMoon /> : <BsFillMoonFill />}
           </ThemeIconContainer>
@@ -64,9 +63,9 @@ export default function Sidebar() {
               "Log out",
             ]}
           />
-        </Actions>
+        </Actions> */}
       </Header>
-      <SidebarAlert />
+      {/* <SidebarAlert /> */}
       <SearchField />
       <ContactContainer>
         {chatCtx.inbox.map((inbox) => (

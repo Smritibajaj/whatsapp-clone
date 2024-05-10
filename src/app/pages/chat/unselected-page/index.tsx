@@ -1,7 +1,7 @@
 import ChatLayout from "../layouts";
-import Icon from "@app/common/components/icons";
+//import Icon from "@app/common/components/icons";
 import { useAppTheme } from "@app/common/theme";
-import { Container, ImageWrapper, Title, IconWrapper, Link, Image, Text } from "./styles";
+import { Container, ImageWrapper, Title, Image, Text } from "./styles";
 
 export default function UnSelectedChatPage() {
   const theme = useAppTheme();
@@ -22,7 +22,7 @@ export default function UnSelectedChatPage() {
           Send and receive messages without keeping your phone online. <br />
           Use WhatsApp on up to 4 linked devices and 1 phone at the same time.
         </Text>
-        <Text>
+        {/* <Text>
           <span>Built by</span>{" "}
           <Link target="_blank" href="https://github.com/Smritibajaj">
             Simmy Bajaj
@@ -30,7 +30,7 @@ export default function UnSelectedChatPage() {
           <IconWrapper>
             <Icon id="heart" />
           </IconWrapper>
-        </Text>
+        </Text> */}
       </Container>
     </ChatLayout>
   );

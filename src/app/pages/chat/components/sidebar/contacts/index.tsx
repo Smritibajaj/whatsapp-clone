@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Icon from "@app/common/components/icons";
 import { Inbox } from "@app/common/types/common.type";
 import {
-  Avatar,
+  // Avatar,
   AvatarWrapper,
   BottomContent,
   Contact,
@@ -14,16 +15,17 @@ import {
   TopContent,
   UnreadContact,
 } from "./styles";
+import { Avatar } from "@mui/material";
 
 type InboxContactProps = {
   inbox: Inbox;
-  onChangeChat?: Function;
+  onChangeChat?: (id: any) => void;
   isActive?: boolean;
 };
 
 export default function InboxContact(props: InboxContactProps) {
   const { onChangeChat, isActive } = props;
-  const { name, lastMessage, image, timestamp } = props.inbox;
+  const { name, lastMessage,  timestamp } = props.inbox;
 
   const handleChangeChat = () => {
     if (onChangeChat) {
@@ -34,7 +36,8 @@ export default function InboxContact(props: InboxContactProps) {
   return (
     <Contact isActive={isActive} onClick={handleChangeChat}>
       <AvatarWrapper>
-        <Avatar src={image} />
+        {/* <Avatar src={image} /> */}
+        <Avatar />
       </AvatarWrapper>
       <Content>
         <TopContent>

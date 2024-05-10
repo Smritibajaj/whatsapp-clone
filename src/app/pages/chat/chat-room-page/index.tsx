@@ -1,12 +1,12 @@
 import ChatLayout from "../layouts";
 import Header from "./components/header";
 import Footer from "./components/footer";
-import Sidebar from "./components/sidebar";
+// import Sidebar from "./components/sidebar";
 import Icon from "@app/common/components/icons";
 import useChatRoom from "./hooks/useChatRoom";
-import ProfileSection from "./components/profile";
+//import ProfileSection from "./components/profile";
 import MessagesList from "./components/messages-list";
-import SearchSection from "./components/search-section";
+//import SearchSection from "./components/search-section";
 import useNavigateToChat from "./hooks/useNavigateToChat";
 import { Container, Body, Background, FooterContainer, ScrollButton } from "./styles";
 
@@ -15,11 +15,11 @@ export default function ChatRoomPage() {
     activeInbox,
     handleMenuOpen,
     handleShowIcon,
-    isProfileOpen,
-    isSearchOpen,
+    // isProfileOpen,
+    // isSearchOpen,
     isShowIcon,
-    setIsProfileOpen,
-    setIsSearchOpen,
+    // setIsProfileOpen,
+    // setIsSearchOpen,
     setShouldScrollToBottom,
     shouldScrollToBottom,
   } = useChatRoom();
@@ -50,16 +50,16 @@ export default function ChatRoomPage() {
             <Footer />
           </FooterContainer>
         </Body>
-        <Sidebar title="Search" isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)}>
+        {/* <Sidebar title="Search" isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)}>
           <SearchSection />
-        </Sidebar>
-        <Sidebar
+        </Sidebar> */}
+        {/* <Sidebar
           title="Contact Info"
           isOpen={isProfileOpen}
           onClose={() => setIsProfileOpen(false)}
         >
           <ProfileSection name={activeInbox?.name ?? ""} image={activeInbox?.image ?? ""} />
-        </Sidebar>
+        </Sidebar> */}
       </Container>
     </ChatLayout>
   );

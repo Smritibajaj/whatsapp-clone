@@ -1,38 +1,40 @@
-import Icon from "@app/common/components/icons";
-import OptionsMenu from "@app/pages/chat/components/option-menu";
+// import Icon from "@app/common/components/icons";
+// import OptionsMenu from "@app/pages/chat/components/option-menu";
 import {
-  Action,
-  Actions,
-  actionStyles,
-  Avatar,
+  // Action,
+  // Actions,
+  // actionStyles,
+  // Avatar,
   AvatarWrapper,
   Container,
   Name,
   ProfileWrapper,
   Subtitle,
 } from "./styles";
+import { Avatar } from "@mui/material";
 
 type HeaderProps = {
-  onSearchClick: Function;
-  onProfileClick: Function;
+  onSearchClick: () => void;
+  onProfileClick: () => void;
   title: string;
   image: string;
   subTitle: string;
 };
 
 export default function Header(props: HeaderProps) {
-  const { title, subTitle, image, onProfileClick, onSearchClick } = props;
+  const { title, subTitle, onProfileClick } = props;
 
   return (
     <Container>
       <AvatarWrapper>
-        <Avatar src={image} />
+        {/* <Avatar src={image} /> */}
+        <Avatar />
       </AvatarWrapper>
       <ProfileWrapper onClick={onProfileClick}>
         <Name>{title}</Name>
         {subTitle && <Subtitle>{subTitle}</Subtitle>}
       </ProfileWrapper>
-      <Actions>
+      {/* <Actions>
         <Action onClick={onSearchClick}>
           <Icon id="search" className="icon search-icon" />
         </Action>
@@ -49,7 +51,7 @@ export default function Header(props: HeaderProps) {
             "Delete chat",
           ]}
         />
-      </Actions>
+      </Actions> */}
     </Container>
   );
 }

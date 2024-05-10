@@ -1,11 +1,11 @@
 import {
   Container,
-  EncryptionIcon,
-  Link,
+  //EncryptionIcon,
+  //Link,
   Logo,
   LogoWrapper,
   Progress,
-  SubTitle,
+  // SubTitle,
   Title,
 } from "./styles";
 
@@ -23,13 +23,13 @@ export default function SplashPage(props: SplashPageProps) {
       </LogoWrapper>
       <Progress progess={progress} />
       <Title>WhatsApp</Title>
-      <SubTitle>
+      {/* <SubTitle>
         <EncryptionIcon id="lock" /> End-to-end encrypted. Built by{" "}
         <Link href="https://github.com/Smritibajaj" target="_blank">
           Simmy Bajaj
         </Link>{" "}
         ❤️.
-      </SubTitle>
+      </SubTitle> */}
     </Container>
   );
 }
